@@ -1,0 +1,154 @@
+/* ============================================
+   index.css - Global Styles
+   Tailwind base + component classes used across all pages.
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ─────────────────────────────────────────────────── */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased text-gray-900 bg-gray-50;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* ── Components ───────────────────────────────────────────── */
+@layer components {
+
+  /* Card container */
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-100 p-6;
+  }
+
+  /* Primary button — blue, filled */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-blue-600 hover:bg-blue-700 active:bg-blue-800
+           text-white font-semibold text-sm
+           px-4 py-2.5 rounded-xl
+           transition-all duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none
+           shadow-sm hover:shadow-md;
+  }
+
+  /* Secondary button — outlined */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           border border-gray-200 bg-white hover:bg-gray-50
+           text-gray-700 font-medium text-sm
+           px-4 py-2.5 rounded-xl
+           transition-all duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Form input field */
+  .input-field {
+    @apply w-full px-4 py-2.5 rounded-xl border border-gray-200
+           bg-white text-gray-900 text-sm
+           placeholder-gray-400
+           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+           transition-all duration-150;
+  }
+}
+
+/* ── Utilities ────────────────────────────────────────────── */
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.2s ease-out;
+  }
+}
+
+/* ── Markdown rendering ───────────────────────────────────── */
+.markdown-content {
+  @apply text-sm text-gray-800 leading-relaxed;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+  @apply font-bold text-gray-900 mt-4 mb-2;
+}
+
+.markdown-content h1 { @apply text-lg; }
+.markdown-content h2 { @apply text-base; }
+.markdown-content h3 { @apply text-sm; }
+
+.markdown-content p {
+  @apply mb-3 leading-relaxed;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  @apply mb-3 pl-5;
+}
+
+.markdown-content ul { @apply list-disc; }
+.markdown-content ol { @apply list-decimal; }
+
+.markdown-content li {
+  @apply mb-1;
+}
+
+.markdown-content strong {
+  @apply font-semibold text-gray-900;
+}
+
+.markdown-content em {
+  @apply italic;
+}
+
+.markdown-content blockquote {
+  @apply border-l-4 border-blue-300 pl-4 italic text-gray-600 my-3;
+}
+
+.markdown-content pre {
+  @apply rounded-xl overflow-x-auto my-3;
+}
+
+.markdown-content table {
+  @apply w-full border-collapse text-sm my-3;
+}
+
+.markdown-content th {
+  @apply bg-gray-100 font-semibold px-3 py-2 text-left border border-gray-200;
+}
+
+.markdown-content td {
+  @apply px-3 py-2 border border-gray-200;
+}
+
+.markdown-content tr:nth-child(even) {
+  @apply bg-gray-50;
+}
+
+/* ── Scrollbar styling ────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
